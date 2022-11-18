@@ -1,24 +1,26 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class GO {
-    public Queue<Commands> commands;
+    public Deque<Commands> commands;
 
     public GO(){
-        commands = new LinkedList<>();
+        commands = new LinkedList<Commands>();
     }
 
     public void addCommand(Commands command){
-        commands.add(command);
+        commands.addLast(command);
     }
 
     public void eraseCommand(){
-        commands.poll();
+        commands.pollLast();
     }
 
     public void executeCommands(){
         while(!commands.isEmpty()){
-            commands.poll().move();
+            commands.pollFirst().move();
         }
     }
 }
