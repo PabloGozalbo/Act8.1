@@ -12,6 +12,10 @@ public class GO {
         commands.add(command);
     }
 
+    public void eraseCommand(){
+        commands.poll();
+    }
+
     public void executeCommands(){
         while(!commands.isEmpty()){
             commands.poll().move();
